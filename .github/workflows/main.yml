@@ -18,3 +18,8 @@ jobs:
         CI: true
       run:
         npm ci
+    - name: deploy
+      run:
+        npx ncc build index.js
+        zip -j deploy.zip ./dist/*
+        aws lambda update-function-code --function-name chat-dio-aws-cloud-week-server --zip-file fileb://deploy.zip

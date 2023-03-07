@@ -22,10 +22,10 @@ jobs:
     - name: npm install
       env: 
         CI: true
-      run:
+      run: |
         npm ci
     - name: deploy
-      run:
+      run: |
         npx ncc build index.js
         zip deploy.zip ./dist/*
         aws lambda update-function-code --function-name chat-dio-aws-cloud-week-server --zip-file fileb://deploy.zip

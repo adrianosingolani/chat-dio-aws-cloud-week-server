@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk')
-require('dotenv').config()
+// require('dotenv').config()
 
 const ENDPOINT = process.env.API_ENDPOINT
 const client = new AWS.ApiGatewayManagementApi({ endpoint: ENDPOINT })
